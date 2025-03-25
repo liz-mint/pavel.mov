@@ -12,16 +12,12 @@ interface ProjectCardProps {
   image: string
   title: string
   description: string
-  tags: string[]
-  links: ProjectLink[]
 }
 
 const ProjectCard = ({
   image,
   title,
   description,
-  tags,
-  links,
 }: ProjectCardProps) => {
   const projectRef = useRef(null)
   const [threshold, setThreshold] = useState(0.5)
@@ -63,34 +59,17 @@ const ProjectCard = ({
 
   return (
     <article className="flex flex-col gap-8 w-full opacity-0" ref={projectRef}>
-      <img
-        src={image}
-        alt={title}
-        className="md:w-[800px] w-full rounded-3xl border border-slate-200 dark:border-slate-700"
-      />
+      <div className={"group-hover"}>
+        <img
+          src={image}
+          alt={title}
+          className="md:w-[800px] w-full rounded-3xl border border-slate-200 dark:border-slate-700"
+        />
+      </div>
       <div className="flex flex-col justify-between gap-4">
         <h3 className="font-bold text-2xl">{title}</h3>
-        <div className="flex flex-wrap gap-4">
-          {tags.map((tag, index) => (
-            <Badge
-              key={index}
-              className="bg-slate-800 text-slate-200 dark:text-slate-800 dark:bg-slate-200"
-            >
-              {tag}
-            </Badge>
-          ))}
-        </div>
+
         <p className="max-w-[800px] text-lg">{description}</p>
-        <div className="flex flex-wrap gap-4">
-          {links.map((link, index) => (
-            <a key={index} href={link.url} target="_blank" rel="noreferrer">
-              <Button variant="secondary">
-                <link.icon />
-                {link.name}
-              </Button>
-            </a>
-          ))}
-        </div>
       </div>
     </article>
   )

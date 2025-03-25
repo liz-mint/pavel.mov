@@ -1,4 +1,3 @@
-![alogocode.site](/images/cover.png)
 
 ## Stack
 
@@ -11,17 +10,13 @@
 - prettier
 - locomotive-scroll
 
-## Contributing
-
-1. [Fork](https://github.com/slydragonn/alogocode.site/fork) the repository.
-
-2. Install dependencies:
+## Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Run the development server:
+## Run the development server:
 
 ```bash
 npm run dev
